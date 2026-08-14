@@ -16,6 +16,10 @@ The concept now also includes a **seabed-supported artificial research island / 
 
 **Full concept note:** [Arctic 90°N Research Direction — Build for Good / TerraWater AI](docs/ARCTIC_90N_RESEARCH_DIRECTION.md)
 
+**Interactive mini-experiment lab:** https://terraforming-planet.github.io/Polar-Sun-Moon-Analysis/arctic-90n/mini-experiments-lab.html
+
+**Experiment summary and formulas:** [Arctic 90°N — Mini-Experiment Lab](docs/ARCTIC_90N_MINI_EXPERIMENTS.md)
+
 **Educational lesson:** [Hidden Water Inside Earth — what we know and what we still cannot measure exactly](docs/LESSON_HIDDEN_WATER_INSIDE_EARTH.md)
 
 The lesson explains why planetary water accounting must separate direct measurements from derived, interpolated and model-estimated values. It also explains the 2014 hydrous-ringwoodite result, fractured-rock uncertainty and why a realistic 3D Earth model should display data gaps rather than hide them behind apparently exact values.
