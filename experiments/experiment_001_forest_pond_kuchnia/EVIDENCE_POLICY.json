@@ -1,15 +1,10 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "experiment_id": "experiment_001_forest_pond_kuchnia",
   "updated": "2026-08-14",
   "evidence_repository": "Terraforming-Planet/Polar-Sun-Moon-Analysis",
   "evidence_branch": "annual-best-53-591400-19-010717",
-  "aoi": {
-    "center_lat": 53.5914,
-    "center_lon": 19.010717,
-    "imagery_width_m": 2000,
-    "imagery_height_m": 2000
-  },
+  "aoi": {"center_lat": 53.5914, "center_lon": 19.010717, "imagery_width_m": 2000, "imagery_height_m": 2000},
   "period": {"start_year": 1990, "end_year": 2026},
   "season_policy": {
     "spring": {"preferred_month": 5, "fallback_months_in_order": [4, 6]},
@@ -28,7 +23,7 @@
     "preserve_native_resolution_in_metadata": true,
     "no_generative_gap_filling": true,
     "no_ai_super_resolution_presented_as_real_detail": true,
-    "ai_training_labels_require_evidence_gate": true
+    "ai_training_labels_require_multiple_verified_cases": true
   },
   "source_slots": [
     {"slot": 1, "agency": "NASA / USGS", "mission": "Landsat 5/7/8/9", "status": "active"},
@@ -42,9 +37,17 @@
     {"agency": "CNSA", "status": "not_admitted_without_exact_public_official_product"}
   ],
   "scientific_status": {
-    "working_visual_loss_estimate_m2": 25000,
-    "working_visual_loss_estimate_is_final": false,
+    "state_transition_conclusion": "supported_by_multi_year_visible_footprint_consensus",
+    "recommended_historical_visible_footprint_m2": 17722.2,
+    "recommended_historical_visible_footprint_ha": 1.7722,
+    "conservative_lower_m2": 16269.3,
+    "repeat_supported_upper_m2": 21642.0,
+    "broad_union_upper_m2": 23978.3,
+    "1990_overlap_fraction_of_central_consensus": 0.92528,
+    "former_25000_m2_estimate_status": "earlier_upper_visual_hypothesis_not_central_result",
+    "2026_exact_residual_open_water_m2": null,
+    "exact_loss_percent_status": "uncertainty_gated_do_not_force",
     "cause_of_change": "not_established",
-    "training_label_status": "blocked_until_final_geometry_and_measurement_validation"
+    "training_label_status": "hold_for_multi_case_dataset_even_though_experiment_001_state_transition_is_supported"
   }
 }
