@@ -16,6 +16,10 @@ The concept now also includes a **seabed-supported artificial research island / 
 
 **Full concept note:** [Arctic 90°N Research Direction — Build for Good / TerraWater AI](docs/ARCTIC_90N_RESEARCH_DIRECTION.md)
 
+**Educational lesson:** [Hidden Water Inside Earth — what we know and what we still cannot measure exactly](docs/LESSON_HIDDEN_WATER_INSIDE_EARTH.md)
+
+The lesson explains why planetary water accounting must separate direct measurements from derived, interpolated and model-estimated values. It also explains the 2014 hydrous-ringwoodite result, fractured-rock uncertainty and why a realistic 3D Earth model should display data gaps rather than hide them behind apparently exact values.
+
 ## What we built
 
 The first competition version is a new, standalone application built from lessons learned in the existing [Terraforming Planet — Polar Sun Moon Analysis](https://github.com/Terraforming-Planet/Polar-Sun-Moon-Analysis) project.
