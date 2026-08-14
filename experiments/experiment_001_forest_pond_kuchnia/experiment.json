@@ -1,0 +1,74 @@
+{
+  "experiment_id": "001",
+  "title": "Forest Pond and Lake Kuchnia Water Loss",
+  "status": "active_evidence_collection",
+  "aoi": {
+    "center_lat": 53.5914,
+    "center_lon": 19.010717,
+    "standard_crop_m": 2000
+  },
+  "time_range": {
+    "start_year": 1990,
+    "end_year": 2026
+  },
+  "targets": [
+    "forest_pond",
+    "lake_kuchnia"
+  ],
+  "working_estimate": {
+    "forest_pond_open_water_loss_m2": 25000,
+    "forest_pond_open_water_loss_ha": 2.5,
+    "forest_pond_loss_percent": "near_100_percent",
+    "status": "provisional_not_final",
+    "note": "Some historical scenes visually suggest a larger maximum footprint; final area awaits corrected seasonal endpoint segmentation and uncertainty bounds."
+  },
+  "seasonal_protocol": {
+    "spring_month_priority": [5, 4, 6],
+    "autumn_month_priority": [9, 10, 11],
+    "fallback_month_must_be_documented": true
+  },
+  "integrity_rules": {
+    "pixel_content_checked_before_metadata_trust": true,
+    "preserve_rejected_images": true,
+    "reject_cross_year_exact_sha_duplicate": true,
+    "reject_broken_blank_visual_pattern": true,
+    "ai_super_resolution_as_observation": false,
+    "generative_gap_fill_as_observation": false
+  },
+  "known_generated_package_issues": {
+    "alternate_source_exact_duplicate_years": [2002, 2012, 2013],
+    "alternate_source_broken_or_review_years": [1993, 1995, 2010],
+    "primary_review_years": [1995, 1997, 2010],
+    "radar_optical_manual_review_years": [2023]
+  },
+  "source_families": [
+    {
+      "name": "NASA_USGS_Landsat",
+      "role": "historical_optical_baseline"
+    },
+    {
+      "name": "ESA_Copernicus_Sentinel_2",
+      "role": "high_resolution_optical_control"
+    },
+    {
+      "name": "ESA_Copernicus_Sentinel_1_RTC",
+      "role": "independent_radar_control"
+    },
+    {
+      "name": "fourth_source_candidate",
+      "candidates": ["NASA_ASTER", "JAXA_ALOS_AVNIR2_PALSAR", "official_Roscosmos", "official_CNSA"],
+      "rule": "include only if public/legal provenance and usable AOI data are independently verified"
+    }
+  ],
+  "authoritative_image_repository": {
+    "repo": "Terraforming-Planet/Polar-Sun-Moon-Analysis",
+    "branch": "annual-best-53-591400-19-010717",
+    "experiment_path": "experiments/experiment_001_pond_forest_kuchnia"
+  },
+  "future_scope": {
+    "target_evidence_sites": 5,
+    "gpu_training": "NVIDIA_L4_after_evidence_validation",
+    "survey_radius_km_after_training": 100,
+    "survey_objects": ["lakes", "ponds", "rivers", "canals"]
+  }
+}
