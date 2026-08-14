@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "experiment_001_forest_pond_kuchnia",
+  "updated": "2026-08-14",
+  "evidence_repository": "Terraforming-Planet/Polar-Sun-Moon-Analysis",
+  "evidence_branch": "annual-best-53-591400-19-010717",
+  "aoi": {
+    "center_lat": 53.5914,
+    "center_lon": 19.010717,
+    "imagery_width_m": 2000,
+    "imagery_height_m": 2000
+  },
+  "period": {"start_year": 1990, "end_year": 2026},
+  "season_policy": {
+    "spring": {"preferred_month": 5, "fallback_months_in_order": [4, 6]},
+    "autumn": {"preferred_month": 9, "fallback_months_in_order": [10, 11]},
+    "rules": {
+      "record_real_acquisition_date": true,
+      "record_real_acquisition_month": true,
+      "fallback_reason_required": true,
+      "forbid_relabeling_fallback_as_preferred_month": true,
+      "out_of_season_proxy_must_have_separate_label": true,
+      "future_observation_must_never_be_invented": true
+    }
+  },
+  "analysis_policy": {
+    "common_cross_era_grid_m": 30,
+    "preserve_native_resolution_in_metadata": true,
+    "no_generative_gap_filling": true,
+    "no_ai_super_resolution_presented_as_real_detail": true,
+    "ai_training_labels_require_evidence_gate": true
+  },
+  "source_slots": [
+    {"slot": 1, "agency": "NASA / USGS", "mission": "Landsat 5/7/8/9", "status": "active"},
+    {"slot": 2, "agency": "ESA / Copernicus", "mission": "Sentinel-2", "status": "active"},
+    {"slot": 3, "agency": "ESA / Copernicus", "mission": "Sentinel-1 RTC", "status": "active_with_small_forested_pond_limitations"},
+    {"slot": 4, "agency": "NASA", "mission": "Terra ASTER", "product": "AST_L1T V004", "status": "catalog_verified_pixels_require_scene_level_qa_before_evidence_admission", "catalog_hits_spring_autumn": 77}
+  ],
+  "supplementary_candidates": [
+    {"agency": "JAXA", "mission": "ALOS", "sensors": ["AVNIR-2", "PALSAR"], "status": "candidate"},
+    {"agency": "Roscosmos", "status": "not_admitted_without_exact_public_official_product"},
+    {"agency": "CNSA", "status": "not_admitted_without_exact_public_official_product"}
+  ],
+  "scientific_status": {
+    "working_visual_loss_estimate_m2": 25000,
+    "working_visual_loss_estimate_is_final": false,
+    "cause_of_change": "not_established",
+    "training_label_status": "blocked_until_final_geometry_and_measurement_validation"
+  }
+}
