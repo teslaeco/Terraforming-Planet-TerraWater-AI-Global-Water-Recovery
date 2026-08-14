@@ -4,6 +4,16 @@
 
 TerraWater AI is being built for the **Build for Good** developer challenge. The project combines public satellite and hydrology data, reproducible geospatial analysis, a 3D/map interface, and the OpenAI API to help people understand shrinking lakes, degraded wetlands, disrupted inflows/outflows, drought exposure, and flood-risk trade-offs.
 
+## New research direction — Arctic 90°N reference station
+
+As an extension of the same evidence-first monitoring idea, TerraWater AI is also documenting a concept for a **permanently positioned or dynamically station-kept scientific reference station near the geographic North Pole (90°N)**.
+
+The purpose would be to combine continuous in-situ measurements of snow, sea ice, melt ponds, ocean conditions and atmosphere with selected official satellite products. AI could synchronize satellite overpasses with direct measurements, detect disagreements, classify ice/water states, estimate uncertainty and flag sensor or retrieval anomalies.
+
+This is a **research and engineering concept**, not a finished station design. The North Pole is not a universal blind spot for every satellite; coverage depends on orbit, swath and product design. Before feasibility can be claimed, the project would need quantitative models for pack-ice loads, pressure ridges, station-keeping force, propulsion power, redundancy, polar-night operation and environmental safety.
+
+**Full concept note:** [Arctic 90°N Research Direction — Build for Good / TerraWater AI](docs/ARCTIC_90N_RESEARCH_DIRECTION.md)
+
 ## What we built
 
 The first competition version is a new, standalone application built from lessons learned in the existing [Terraforming Planet — Polar Sun Moon Analysis](https://github.com/Terraforming-Planet/Polar-Sun-Moon-Analysis) project.
