@@ -1,200 +1,147 @@
 # Experiment 001 — Forest Pond and Lake Kuchnia Water Loss (1990–2026)
 
-## Purpose
+## TerraWater evidence status
 
-This is the first formal evidence experiment for TerraWater AI. The experiment documents a suspected long-term loss of open water in a forest pond near Lake Kuchnia and uses Lake Kuchnia as an additional comparison target.
+**State-transition evidence: SUPPORTED. Exact 2026 residual open-water area and exact percentage loss: UNCERTAINTY-GATED. Cause: NOT ESTABLISHED.**
 
-The project goal is to build an evidence-first, reproducible workflow that can later be repeated at several other sites. Only after approximately five independently documented evidence cases will the project consider L4 training and a systematic survey of lakes, ponds, rivers and canals within 100 km of Evidence 001.
+Experiment 001 is the first formal positive evidence case for TerraWater AI. The evidence-building pipeline is now sufficiently documented and reproducible to begin additional independent examples. This does **not** mean that every numerical endpoint is known: the project explicitly preserves uncertainty rather than forcing a false percentage.
 
-## Exact area of interest
-
-- Main analysis center: **53.591400, 19.010717**
-- Standard image crop: **2 km × 2 km**, centered exactly on the coordinate above
-- Study interval: **1990–2026 inclusive**
-- Spring comparison: preferred **May**, with April/June fallback only when necessary and explicitly documented
-- Autumn comparison: preferred **September**, with October/November fallback only when necessary and explicitly documented
-
-## Scientific separation of statements
-
-### OBSERVED
-
-- Historical satellite imagery shows a clearly larger open-water signal in the forest-pond area than recent imagery.
-- Recent imagery shows the pond as strongly reduced and in some scenes with little or no stable open-water signal.
-- The change is large enough to justify formal monitoring and independent-source verification.
-- The water state does not evolve monotonically every year; seasonal and interannual rebounds are possible.
-
-### WORKING ESTIMATE — NOT YET FINAL
-
-The current image-based working estimate is approximately **2.5 ha (25,000 m²) of lost open-water footprint**, with the forest pond appearing to have lost **close to 100%** of its earlier visible open-water area across roughly 36 years. Some older scenes visually suggest that the historic maximum may have been larger.
-
-This number is deliberately labelled provisional. It must not be presented as a final measured value until corrected endpoint segmentation, pond geometry verification, seasonal comparison and uncertainty bounds are completed.
-
-### NOT ESTABLISHED
-
-The satellite imagery alone does **not** establish why the pond changed. Hypotheses involving drought, precipitation, drainage, blocked/altered connections, groundwater, river-management effects or other causes require independent hydrological and meteorological evidence.
-
-## Evidence archive in Polar-Sun-Moon-Analysis
-
-The image-heavy evidence is maintained on the dedicated branch:
+Heavy imagery, spectral outputs and source catalogs remain in:
 
 `Terraforming-Planet/Polar-Sun-Moon-Analysis@annual-best-53-591400-19-010717`
 
-Existing evidence products:
+This TerraWater repository records the research conclusion, methodology, decision gates and future AI-label policy.
 
-1. **Primary May series 1990–2026 (37 years)** — USGS/NASA Landsat + ESA/Copernicus Sentinel-2.
-2. **Alternate delivery-path May series 1990–2025 (36 years)** — Google Cloud public Landsat + Element 84 Sentinel-2; 2022 is explicitly a non-independent fallback copied from the primary series.
-3. **Sentinel-1 RTC radar series 2015–2025** — VV/VH, descending relative orbit 124, monthly May median composites.
-4. **Image-first forensic audit** — hashes, cross-year duplicates, structural image registration, orientation, broken-image detection and optical/radar consistency checks.
-5. **Experiment 001 corrected spring + autumn seasonal build** — generated under `experiments/experiment_001_pond_forest_kuchnia/` on the same Polar branch.
+## Area of interest
 
-## Forensic audit findings that must remain part of the evidence record
+- Main analysis center: **53.591400, 19.010717**
+- Standard image crop: **2 km × 2 km**
+- Study interval: **1990–2026 inclusive**
+- Corrected forest-pond measurement seed: approximately **53.594595, 19.000140**
+- Secondary/control object: **Lake Kuchnia**
 
-The audit intentionally checked the image pixels before trusting dates or metadata.
+## Current authoritative forest-pond result
 
-### Alternate optical package errors
+The earlier ~2.5 ha / 25,000 m² visual estimate has been superseded as the central result by a repeatable multi-year visible-footprint consensus built from seven clear historical primary images: **1998, 1999, 2000, 2004, 2005, 2006 and 2008**.
 
-- **2002, 2012 and 2013:** exact byte-for-byte image duplication was found in the generated alternate-source package. These records are invalid as independent year observations and must not be used quantitatively until replaced.
-- **1993:** alternate image was flagged as visually broken/blank and also conflicted in Landsat path/row with the primary record.
-- **1995:** both optical deliveries were too cloudy/low-confidence for reliable water-area measurement.
-- **2010:** primary image showed a broken/blank visual pattern; alternate scene had low local clear fraction.
-- **1997:** the image itself strongly agrees across delivery paths, but provider/local QA values disagree substantially. This is treated as a QA/provenance issue, not evidence that the scene is fake.
-- **2014:** path/row differs across products, but structural image agreement is good; likely overlapping valid Landsat scenes rather than falsification.
-- **2023:** optical products agree strongly with each other, while one automatic radar-water-footprint test differs; this requires manual/seasonal review and is not labelled fake.
+- central persistent historical footprint: **17,722.2 m² = 1.7722 ha**;
+- conservative lower footprint: **16,269.3 m² = 1.6269 ha**;
+- repeat-supported upper footprint: **21,642.0 m² = 2.1642 ha**;
+- broad one-or-more-year union envelope: **23,978.3 m² = 2.3978 ha**;
+- 1990 overlap with the central footprint: **16,398.1 m² = 92.528%**.
 
-### Independence warning
+Individual historical visible components in the selected clear years range roughly **1.55–2.08 ha**.
 
-Twenty-one years in the first two optical packages use the same acquisition date, platform and scene/path-row. They therefore verify delivery/processing consistency but are **not two independent observations of Earth**.
+The old 2.5 ha estimate is preserved as an earlier upper visual hypothesis only. It must not be presented as the central measured result.
 
-### Sentinel-1 integrity
+## 2026 state
 
-No exact cross-year duplicate was found in the Sentinel-1 RTC series and no acquisition-date integrity failure was detected. Sentinel-1 provides genuinely different measurement physics from the optical series, although the small pond is challenging because tree canopy, wet soil and 10 m mixed pixels can contaminate the radar signal.
+The historical consensus footprint overlays a visibly changed/drier basin in 2026, with no comparable persistent dark-water shape. May 2026 and the separately documented 7 August 2026 Sentinel-2B proxy show non-water-like diagnostics at the corrected location.
 
-## Error-preservation policy
+The project deliberately does **not** force a residual 2026 open-water area in square metres. Canopy, shadow, wet soil and mixed pixels can make a strict spectral water classifier fail for a small forest pond. The strongest defensible conclusion is therefore a **near-total state transition of the historical visible-water feature**, while the exact loss percentage stays uncertainty-gated.
 
-No suspect image is silently deleted. Copies are archived under:
+## Seasonal evidence and missing-month policy
 
-`errors/do_wyjasnienia/`
+Spring acquisition order:
+1. May;
+2. April fallback;
+3. June fallback.
 
-with:
+Autumn acquisition order:
+1. September;
+2. October fallback;
+3. November fallback.
 
-- source identifier,
-- year,
-- original path,
-- archived path,
-- SHA-256,
-- reason for rejection/review,
-- preservation status.
+Every fallback records its true acquisition date and month. A fallback is never relabelled as the preferred month.
 
-The original generated packages remain untouched for reproducibility.
+As of **14 August 2026**, September–November 2026 have not occurred. Therefore the autumn series legitimately contains **1990–2025**, while 2026 is marked missing rather than invented. A real Sentinel-2B scene from **7 August 2026** is stored separately as `late_summer_proxy_only_not_autumn` and is explicitly forbidden from being represented as autumn 2026.
 
-## Corrected seasonal evidence design
+## Common-grid spectral workflow
 
-### Spring
+The v3 seasonal spectral pipeline now completes successfully and CI is green:
 
-Target order:
+- measured records: **73**;
+- execution failures: **0**;
+- comparison grid: **30 m**;
+- exact source product IDs are required.
 
-1. May
-2. April fallback
-3. June fallback
+The workflow correctly refuses unreliable endpoint percentages:
 
-The best locally usable scene is selected. A fallback month is permitted only when the preferred month cannot supply sufficiently reliable imagery, and that decision is written into the manifest.
+- spring / forest pond: `not_quantifiable_by_current_strict_spectral_classifier`;
+- spring / Lake Kuchnia: `not_quantifiable_sanity_gate_failed`;
+- autumn / both objects: `endpoint_pending_missing_observation` because 2026 autumn does not yet exist.
 
-### Autumn
+This diagnostic failure is not hidden. TerraWater uses the stronger multi-year visible-footprint consensus for the current state-transition conclusion and keeps the strict spectral output as an uncertainty signal.
 
-Target order:
+## Satellite evidence matrix
 
-1. September
-2. October fallback
-3. November fallback
+### Source 1 — NASA / USGS Landsat 5/7/8/9
+Long historical optical record. Older multispectral detail is approximately 30 m and is never presented as true higher-resolution observation.
 
-Autumn is added specifically to compare post-summer low-water conditions against spring conditions and to identify years where seasonal contraction was strongest.
+### Source 2 — ESA / Copernicus Sentinel-2
+Recent optical control with relevant 10 m bands.
 
-### File naming
+### Source 3 — ESA / Copernicus Sentinel-1 RTC
+Independent radar measurement physics. Useful as a control but challenging for a small forested pond because canopy, wet soil and mixed pixels affect the return.
 
-Every evidence image starts with year and date:
+### Source 4 — NASA Terra ASTER
+Selected fourth sensor family. The automated official NASA CMR query for `AST_L1T V004` found **77 spring/autumn catalog hits** for Experiment 001. ASTER is currently **catalog-verified**; each candidate granule still requires official pixel download and scene-level AOI/date/product/resolution/quality/SHA validation before it is counted as environmental evidence.
 
-`YYYY_YYYY-MM-DD_satellite_resolution_...`
+### Supplementary source — JAXA ALOS
+AVNIR-2/PALSAR remains a useful candidate for the 2006–2011 era where exact official products can be retrieved and checked.
 
-### Automatic integrity gate
+### Roscosmos / CNSA
+These remain candidate agencies only. TerraWater will not claim a Roscosmos or CNSA observation unless an exact official, public, reproducible product for the AOI can be identified with date, mission/sensor, product ID, processing level, native resolution, access path and QA.
 
-- real public satellite pixels only;
-- no generative AI gap filling;
-- no AI super-resolution represented as observed detail;
-- exact SHA-256 duplicate across different years is automatically rejected;
-- visually blank/broken imagery is automatically rejected;
-- cloud/valid-pixel quality is stored in the manifest;
-- fallback months are explicit.
+Four logos are not the objective. Four verifiable observations are.
 
-## Source families
+## Arctic 90°N relation
 
-| Family | Missions | Role | Limitations |
-|---|---|---|---|
-| NASA/USGS | Landsat 5/7/8/9 | long optical record | 30 m multispectral for older years; Landsat-7 SLC-off after 31 May 2003 |
-| ESA/Copernicus optical | Sentinel-2 A/B/C | 10 m optical control | begins in 2015; no Sentinel-2 May 2015 because Sentinel-2A launched in June 2015 |
-| ESA/Copernicus radar | Sentinel-1 RTC | radar control independent of cloud/optical appearance | pond is small and partly forested, so radar water classification can be low-confidence |
-| Fourth-source candidates | NASA ASTER, JAXA ALOS/AVNIR-2/PALSAR, and only verifiable official Roscosmos/CNSA products | extra independent control | used only where legal public access, exact provenance and usable spatial resolution can be verified |
+The Polar repository's `docs/arctic-90n/` research module uses CryoSat, ICESat-2, Sentinel and SMOS concepts for polar validation. Those missions remain valuable for the 90°N hypothesis, but they are not automatically better evidence for a tiny forest pond. TerraWater selects sensors per scientific question and scale rather than reusing a satellite simply because it exists elsewhere on the site.
 
-A source is never included merely to reach a target count of four. If an official Roscosmos or CNSA product cannot be independently downloaded and traced for this AOI, it remains a documented candidate rather than being represented as evidence.
+## Forensic findings retained
 
-## Measurement plan
+The evidence archive preserves rather than deletes problematic material. Known review cases include:
 
-The final area calculation will use original spectral/radar bands rather than display PNGs wherever possible.
+- 2002, 2012, 2013 alternate optical package: exact duplicate imagery assigned to different years;
+- 1993: blank/broken alternate image and path/row concern;
+- 1995: weak/cloudy imagery;
+- 2010: broken/low-quality candidate imagery;
+- 1997: visual agreement with contradictory QA/provenance;
+- 2014: differing path/row with structural agreement, likely overlapping valid scenes;
+- 2023: optical agreement with differing automated Sentinel-1 response.
 
-For optical imagery:
+Rejected or suspect material remains under `errors/do_wyjasnienia/` in the evidence repository with hashes and reasons. Two delivery servers for the same underlying acquisition are not counted as two independent observations of Earth.
 
-- NDWI and/or MNDWI;
-- cloud/shadow/snow masks;
-- connected-component water extraction constrained to verified object geometry;
-- m² and hectares;
-- perimeter/pixel uncertainty;
-- confidence classification.
+## Current scientific conclusion
 
-For radar:
+**Supported:** the long image record supports disappearance/near-total state transition of a historically persistent forest-pond visible-water feature. The repeat-supported historical footprint is on the order of **~1.6–2.2 ha**, with a central consensus of **~1.77 ha**.
 
-- consistent orbit/processing where possible;
-- VV/VH thresholds/composite stability;
-- radar used as independent confirmation rather than forcing agreement with optical masks.
+**Not yet exactly quantified:** residual 2026 open-water m² and therefore exact percentage loss.
 
-## Endpoint evidence gate: 1990 versus 2026
+**Not established:** cause. Drought, precipitation, groundwater, drainage, blocked/altered connections, melioration, river-management effects, local channels and land-use change remain hypotheses requiring independent hydrological and meteorological evidence.
 
-The experiment will be considered quantitatively complete only after:
+## AI training policy
 
-1. the forest-pond geometry is manually verified against the actual imagery;
-2. corrected spring 1990 and 2026 endpoints are segmented;
-3. autumn endpoints are segmented where usable;
-4. the result includes uncertainty bounds;
-5. independent sensor evidence is compared;
-6. rejected/ambiguous scenes are excluded transparently;
-7. the final conclusion is labelled **supported**, **not supported** or **inconclusive**.
+Experiment 001 can be retained as the first **positive state-transition evidence case**, including its uncertainty metadata. It is not sufficient on its own to train a general water-recovery model.
 
-## Alarm criterion
+The next research step is to document approximately **four additional independent cases** using the same provenance, seasonal, integrity and uncertainty rules. Only then should the project assemble the first multi-case training set, test on NVIDIA L4 and later scan the approximately 100 km region around Experiment 001 for similar state transitions.
 
-If the corrected analysis confirms near-total disappearance of a previously persistent ~hectare-scale open-water body, that state transition should be flagged by TerraWater as a **high-priority environmental monitoring anomaly**. An alarm means “requires investigation”; it does not by itself assign cause or blame.
+## Authoritative evidence files in Polar-Sun-Moon-Analysis
 
-## Planned next phase
+- `experiments/experiment_001_pond_forest_kuchnia/EVIDENCE_POLICY.json`
+- `experiments/experiment_001_pond_forest_kuchnia/measurements_visible_pond_consensus/visible_pond_consensus_measurement.json`
+- `experiments/experiment_001_pond_forest_kuchnia/measurements_visible_pond_consensus/2000_historical_consensus_overlay.png`
+- `experiments/experiment_001_pond_forest_kuchnia/measurements_visible_pond_consensus/2026_historical_consensus_on_recent_basin.png`
+- `experiments/experiment_001_pond_forest_kuchnia/measurements/seasonal_water_measurements.json`
+- `experiments/experiment_001_pond_forest_kuchnia/measurements/endpoint_1990_vs_2026.json`
+- `experiments/experiment_001_pond_forest_kuchnia/seasonal_evidence/spring/manifest.json`
+- `experiments/experiment_001_pond_forest_kuchnia/seasonal_evidence/autumn/manifest.json`
+- `experiments/experiment_001_pond_forest_kuchnia/seasonal_evidence/late_summer_2026_proxy/manifest.json`
+- `experiments/experiment_001_pond_forest_kuchnia/source4/nasa_aster/nasa_aster_scene_catalog.json`
 
-After Evidence 001 is closed:
+## Experiment 001 phase decision
 
-- identify approximately four additional evidence sites;
-- repeat the same provenance, seasonal and cross-sensor protocol;
-- build labelled training examples only from verified observations;
-- later test the model on NVIDIA L4;
-- then scan lakes, ponds, rivers and canals within **100 km** of Evidence 001 for similar long-term state transitions.
+**Evidence phase closed sufficiently to start the next examples.** The exact 2026 autumn observation can be appended after the season occurs, and independent ASTER/ALOS pixels can strengthen the record later without blocking work on Experiment 002–005.
 
-## Reproducibility links
-
-Polar repository branch:
-
-`https://github.com/Terraforming-Planet/Polar-Sun-Moon-Analysis/tree/annual-best-53-591400-19-010717`
-
-Primary May ZIP:
-
-`https://raw.githubusercontent.com/Terraforming-Planet/Polar-Sun-Moon-Analysis/annual-best-53-591400-19-010717/satellite_may_1990_2026/53.591400_19.010717/MAY_1990_2026_37_YEARS_2km_53.591400_19.010717.zip`
-
-Alternate May ZIP:
-
-`https://raw.githubusercontent.com/Terraforming-Planet/Polar-Sun-Moon-Analysis/annual-best-53-591400-19-010717/satellite_alternate_source_may_1990_2025/53.591400_19.010717/ALT_SOURCE_MAY_1990_2025_36_YEARS_2km_53.591400_19.010717.zip`
-
-Sentinel-1 RTC ZIP:
-
-`https://raw.githubusercontent.com/Terraforming-Planet/Polar-Sun-Moon-Analysis/annual-best-53-591400-19-010717/satellite_third_source_sentinel1_rtc_may_2015_2025/53.591400_19.010717/THIRD_SOURCE_SENTINEL1_RTC_MAY_2015_2025_WATER_2km_53.591400_19.010717.zip`
+**Najpierw dowody, potem AI.**
