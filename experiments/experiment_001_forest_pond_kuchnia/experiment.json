@@ -15,17 +15,48 @@
     "forest_pond",
     "lake_kuchnia"
   ],
-  "working_estimate": {
-    "forest_pond_open_water_loss_m2": 25000,
-    "forest_pond_open_water_loss_ha": 2.5,
+  "pond_geometry": {
+    "corrected_seed_lat": 53.594595,
+    "corrected_seed_lon": 19.00014,
+    "offset_from_aoi_center_m": {
+      "west": 690,
+      "north": 375
+    },
+    "status": "image_first_corrected_final_polygon_still_review_gated"
+  },
+  "previous_visual_estimate": {
+    "forest_pond_loss_m2": 25000,
+    "forest_pond_loss_ha": 2.5,
     "forest_pond_loss_percent": "near_100_percent",
-    "status": "provisional_not_final",
-    "note": "Some historical scenes visually suggest a larger maximum footprint; final area awaits corrected seasonal endpoint segmentation and uncertainty bounds."
+    "status": "retained_historical_working_estimate_not_central_result"
+  },
+  "current_visible_footprint_consensus": {
+    "method": "same geographic crop; deterministic visible-component extraction across seven clear historical years; multi-year support consensus",
+    "historical_consensus_years": [1998, 1999, 2000, 2004, 2005, 2006, 2008],
+    "central_persistent_historical_footprint_m2": 17722.2,
+    "central_persistent_historical_footprint_ha": 1.7722,
+    "conservative_lower_m2": 16269.3,
+    "repeat_supported_upper_m2": 21642.0,
+    "broad_union_upper_m2": 23978.3,
+    "1990_overlap_with_central_consensus_m2": 16398.1,
+    "1990_overlap_fraction": 0.92528,
+    "2026_state": "no comparable persistent dark-water footprint visible; exact residual open-water area remains review gated",
+    "loss_interpretation": "near-total state transition strongly supported visually; exact percentage uncertainty-gated",
+    "status": "best_current_image_based_measurement_not_final_hydrological_area"
+  },
+  "measurement_warning": {
+    "fixed_ndwi_mndwi_threshold_method": "rejected_after_sanity_failure",
+    "reason": "absolute water-index values shifted strongly by sensor/season; fixed thresholds missed visibly obvious Lake Kuchnia water and cannot reliably recover the small forest pond under 30 m mixed pixels/canopy",
+    "rule": "do_not_force_spectral_zero_into_physical_zero"
   },
   "seasonal_protocol": {
     "spring_month_priority": [5, 4, 6],
     "autumn_month_priority": [9, 10, 11],
-    "fallback_month_must_be_documented": true
+    "fallback_month_must_be_documented": true,
+    "spring_scene_count": 37,
+    "autumn_scene_count": 36,
+    "autumn_2026_status": "not_yet_occurred_as_of_2026-08-14",
+    "late_summer_2026_proxy": "2026-08-07 Sentinel-2B; explicitly not autumn"
   },
   "integrity_rules": {
     "pixel_content_checked_before_metadata_trust": true,
@@ -39,7 +70,8 @@
     "alternate_source_exact_duplicate_years": [2002, 2012, 2013],
     "alternate_source_broken_or_review_years": [1993, 1995, 2010],
     "primary_review_years": [1995, 1997, 2010],
-    "radar_optical_manual_review_years": [2023]
+    "radar_optical_manual_review_years": [2023],
+    "verified_replacement_years": [1993, 1995, 2002, 2010, 2012, 2013]
   },
   "source_families": [
     {
@@ -55,9 +87,14 @@
       "role": "independent_radar_control"
     },
     {
-      "name": "fourth_source_candidate",
-      "candidates": ["NASA_ASTER", "JAXA_ALOS_AVNIR2_PALSAR", "official_Roscosmos", "official_CNSA"],
-      "rule": "include only if public/legal provenance and usable AOI data are independently verified"
+      "name": "NASA_ASTER",
+      "role": "preferred_fourth_independent_optical_candidate",
+      "catalog_status": "77 spring/autumn AOI granule hits found; pixels not yet admitted"
+    },
+    {
+      "name": "additional_fourth_source_candidates",
+      "candidates": ["JAXA_ALOS_AVNIR2_PALSAR", "official_Roscosmos", "official_CNSA_Gaofen"],
+      "rule": "include only if public/legal provenance and usable exact AOI data are independently verified"
     }
   ],
   "authoritative_image_repository": {
