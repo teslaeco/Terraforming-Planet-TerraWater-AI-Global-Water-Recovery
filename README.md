@@ -6,11 +6,13 @@ TerraWater AI is being built for the **Build for Good** developer challenge. The
 
 ## New research direction — Arctic 90°N reference station
 
-As an extension of the same evidence-first monitoring idea, TerraWater AI is also documenting a concept for a **permanently positioned or dynamically station-kept scientific reference station near the geographic North Pole (90°N)**.
+As an extension of the same evidence-first monitoring idea, TerraWater AI is also documenting a concept for a **permanently fixed scientific reference station at the geographic North Pole (90°N)**.
 
 The purpose would be to combine continuous in-situ measurements of snow, sea ice, melt ponds, ocean conditions and atmosphere with selected official satellite products. AI could synchronize satellite overpasses with direct measurements, detect disagreements, classify ice/water states, estimate uncertainty and flag sensor or retrieval anomalies.
 
-This is a **research and engineering concept**, not a finished station design. The North Pole is not a universal blind spot for every satellite; coverage depends on orbit, swath and product design. Before feasibility can be claimed, the project would need quantitative models for pack-ice loads, pressure ridges, station-keeping force, propulsion power, redundancy, polar-night operation and environmental safety.
+**Critical measurement distinction:** ESA documents that CryoSat reaches about **88°N/S** on each orbit. That is a property of CryoSat's orbit, not a universal rule for all satellites. Existing drifting camps and ice-tethered instruments provide real, scientifically valuable calibrated data, but they are not equivalent to a permanent multi-year geodetic benchmark fixed exactly at 90°N. TerraWater therefore treats a fixed 90°N reference as a research proposal for reducing one class of satellite/ground comparison uncertainty — not as proof that existing Arctic measurements are invalid.
+
+The concept now also includes a **seabed-supported artificial research island / tapered megastructure** as one architecture to test numerically. The initial simulation envelope uses a nominal **8 km × 8 km footprint and ~7 km vertical scale**. These are deliberately treated as placeholder dimensions for feasibility modeling, not construction specifications. Bathymetry, geology, ice loads, current changes, ecological effects, international law and lower-impact alternatives must all be evaluated before any construction decision.
 
 **Full concept note:** [Arctic 90°N Research Direction — Build for Good / TerraWater AI](docs/ARCTIC_90N_RESEARCH_DIRECTION.md)
 
